@@ -1,0 +1,91 @@
+/* Мои стили */
+.My-App-header {
+  background-color: #e64e12;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+/* @media (min-width: 1200px) {
+ .App-wrapper {
+   width: 100%;
+ };
+}; */
+
+.App-wrapper {
+  height: 640px;
+  display: grid;
+  grid-template-areas: 
+  "Header Header"
+  "Navbar Profile";
+  grid-auto-rows: 90px 10fr;
+  grid-template-columns: 180px 8fr;
+  /* grid-gap: 10px; */
+}
+
+.Header {
+  grid-area: Header;
+  background-color: #52fc69;
+}
+
+.Header img {
+  height: 60px;
+}
+
+.Navbar {
+  grid-area: Navbar;
+  background-color: #28ec28;
+}
+
+.Profile {
+  grid-area: Profile;
+  background-color: #f1f3f2;
+}
+
+.Profile img {
+  height: 400px;
+}
+
+/* Стандартные стили React */
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
