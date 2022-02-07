@@ -27,29 +27,6 @@
   /* grid-gap: 10px; */
 }
 
-.Header {
-  grid-area: Header;
-  background-color: #52fc69;
-}
-
-.Header img {
-  height: 60px;
-}
-
-.Navbar {
-  grid-area: Navbar;
-  background-color: #28ec28;
-}
-
-.Profile {
-  grid-area: Profile;
-  background-color: #f1f3f2;
-}
-
-.Profile img {
-  height: 400px;
-}
-
 /* Стандартные стили React */
 .App {
   text-align: center;

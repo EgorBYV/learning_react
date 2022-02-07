@@ -1,0 +1,8 @@
+.Navbar {
+    grid-area: Navbar;
+    background-color: #1baa1b;
+  }
+  
+ .item {
+  color: #ffffff;
+ } 

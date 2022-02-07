@@ -1,0 +1,13 @@
+
+.Profile {
+    grid-area: Profile;
+    background-color: #b8e3f5;
+  }
+  
+  .Profile img {
+    height: 400px;
+  }
+
+.item {
+  color: rgb(30, 117, 34);
+}
