@@ -1,10 +1,4 @@
-
-.Profile {
-    grid-area: Profile;
-    background-color: #b8e3f5;
-  }
-  
-  .Profile img {
+ img {
     height: 400px;
   }
 

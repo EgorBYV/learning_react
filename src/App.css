@@ -27,6 +27,13 @@
   /* grid-gap: 10px; */
 }
 
+.App-wrapper-content {
+  grid-area: Profile;
+  background-color: #b8e3f5;
+}
+
+
+
 /* Стандартные стили React */
 .App {
   text-align: center;
