@@ -4,60 +4,31 @@ import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
+import { Routes, Route, BrowserRouter } from "react-router-dom"
+import Settings from './components/Settings/Settings';
+import News from './components/News/News';
+import Contacts from './components/Contacts/Contacts';
+import Music from './components/Music/Music';
 
 const App = () => {
   return (
+    <BrowserRouter>
     <div className="App-wrapper">
       <Header />
       <Navbar />
       <div className="App-wrapper-content">
-        {/* <Profile /> */}
-        <Dialogs />
+        <Routes>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/dialogs" element={<Dialogs />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/music" element={<Music />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
       </div>
-
-    </div>);
+    </div>
+    </BrowserRouter>
+  );
 };
-
-// const App = () => {
-//   return (
-//     <div>
-//       {/* <div className="App-link"><Header /></div> */}
-//       <div><Navigation /></div>
-//       <div className="App-header">
-//         Egor, you're cool!!
-//       </div>
-
-//       <div className="App">
-//         Simple HTML
-//       </div>
-
-//       <div className="My-App-header">
-//         Liza: "Egor, you're my God"!
-//       </div>
-
-//     </div>
-//   );
-// };
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Egor <code> is a prorammer</code>
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 
 export default App;
