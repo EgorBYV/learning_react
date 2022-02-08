@@ -1,0 +1,16 @@
+
+  .Post img {
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+   }
+
+.Post {
+  color: rgb(30, 117, 34);
+  margin: 10px;
+}
+
+button {
+  margin-left: 10px;
+  color: rgb(21, 10, 114);
+}
