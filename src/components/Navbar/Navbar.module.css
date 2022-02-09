@@ -2,7 +2,15 @@
     grid-area: Navbar;
     background-color: #1baa1b;
   }
-  
- .item {
+
+ a {
   color: #ffffff;
+  text-decoration: none;
  } 
+
+ .active {
+   color: gold;
+ }
+
+ .item {
+}
