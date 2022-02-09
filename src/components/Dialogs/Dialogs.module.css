@@ -7,6 +7,10 @@
     padding: 15px;
 }
 
+.dialogs_items a{
+    color: green;
+}
+
 .messages {
     padding: 10px;
 }
