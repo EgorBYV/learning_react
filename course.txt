@@ -37,4 +37,5 @@ let messagesElements = messagesData.map(message => <Message text={message.text} 
 А таким образом вставляется результат в JSX файле
 {dialogsData}
 
-Урок 26.
+Урок 26-27:
+Перенос массивов данных с помощью props в index.js
