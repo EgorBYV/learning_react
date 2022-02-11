@@ -23,13 +23,12 @@ const App = (props) => {
             <Route path="/dialogs" element={<Dialogs
               dialogsData={props.state.dialogsPage.dialogsData}
               messagesData={props.state.dialogsPage.messagesData} 
-              avatar={props.state.dialogsPage.dialogsData}/>} />
+              avatar={props.state.dialogsPage.dialogsData.avatar}/>} />
             <Route path="/news" element={<News />} />
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
           </Routes>
-        
         </div>
       </div>
     </BrowserRouter>

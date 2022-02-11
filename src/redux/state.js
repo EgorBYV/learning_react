@@ -16,7 +16,6 @@ let state = {
             { id: 8, text: "Swift is my wife's favorite language." },
         ],
     },
-    
     profilePage: {
         postsData: [
             { id: 1, text: 'Привет!', number: 11 },
@@ -25,8 +24,8 @@ let state = {
             { id: 4, text: 'Спасибо! Хорошо! Скучаю по тебе!', number: 1 },
             { id: 5, text: "Я тоже очень скучаю по тебе. Рада, что у тебя всё хорошо! Давай увидимся! Ты когда свободен?", number: 4 },
         ],
-    }
-
+    },
+    sidebar: {},
 }
 
 export default state;
