@@ -13,20 +13,25 @@ import Music from './components/Music/Music';
 const App = (props) => {
   return (
     <BrowserRouter>
-    <div className="App-wrapper">
-      <Header />
-      <Navbar />
-      <div className="App-wrapper-content">
-        <Routes>
-          <Route path="/profile" element={<Profile postsData={props.postsData}/>}/>
-          <Route path="/dialogs" element={<Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/>}/>
-          <Route path="/news" element={<News />} />
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="/music" element={<Music />} />
-          <Route path="/settings" element={<Settings />} />
-        </Routes>
+      <div className="App-wrapper">
+        <Header />
+        <Navbar />
+        <div className="App-wrapper-content">
+          <Routes>
+            <Route path="/profile" element={<Profile
+              postsData={props.state.profilePage.postsData} />} />
+            <Route path="/dialogs" element={<Dialogs
+              dialogsData={props.state.dialogsPage.dialogsData}
+              messagesData={props.state.dialogsPage.messagesData} 
+              avatar={props.state.dialogsPage.dialogsData}/>} />
+            <Route path="/news" element={<News />} />
+            <Route path="/contacts" element={<Contacts />} />
+            <Route path="/music" element={<Music />} />
+            <Route path="/settings" element={<Settings />} />
+          </Routes>
+        
+        </div>
       </div>
-    </div>
     </BrowserRouter>
   );
 };
