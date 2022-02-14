@@ -49,3 +49,7 @@ let messagesElements = messagesData.map(message => <Message text={message.text} 
 
 Урок 32:
 Добавлена функция addUser в state и передана через props в компаненту Dialogs, заменив на её alert()
+
+Урок 33: Основы Flux-концепции
+Добавление функции rerenderEntireTree() в render.js(файл создан чтобы не было функционального зацикливания. Не замыкались import и export)
+Функция rerenderEntireTree(); перересовывает всё дерево UI (это не эффективно, но для обучения пойдет) при изменениях в данных в state
