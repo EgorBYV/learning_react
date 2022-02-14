@@ -11,6 +11,8 @@ import Contacts from './components/Contacts/Contacts';
 import Music from './components/Music/Music';
 
 const App = (props) => {
+  // Собирает все главные копоненты приложения.
+  // Следит за их состоянием в Navbar и прорисовывает активные.
   return (
     <BrowserRouter>
       <div className="App-wrapper">

@@ -33,8 +33,10 @@ let state = {
 
 export default state;
 
-// Functions
+// Functions for dialogsPage:
 export let addUser = (newUser) => {
     state.dialogsPage.dialogsData.push({id: 6, name: newUser, avatar: "",})
     rerenderEntireTree();
 }
+
+// Functions for profilePage:
