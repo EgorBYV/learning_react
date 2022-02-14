@@ -37,7 +37,14 @@ let messagesElements = messagesData.map(message => <Message text={message.text} 
 А таким образом вставляется результат в JSX файле
 {dialogsData}
 
-Урок 26-28:
+Урок 26-29:
 Перенос массивов данных с помощью props в index.js
 
-Урок 29:
+Урок 30: обобщение теории
+
+Урок 31:
+Добавлен в Profile и Dialogs onClick() в button, ref в texterea, React.createRef и peremennaya.сurrent.calue
+Это нужно было сделать для того, чтобы при нажатии на кнопку вызывалась функция, которую мы потом заменим на добавление введенных данных в базу
+ и потом сделаем чтобы из базы создавался пост или отплавлялось сообщение.
+
+Урок 32:
