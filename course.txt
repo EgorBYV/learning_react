@@ -48,3 +48,4 @@ let messagesElements = messagesData.map(message => <Message text={message.text} 
  и потом сделаем чтобы из базы создавался пост или отплавлялось сообщение.
 
 Урок 32:
+Добавлена функция addUser в state и передана через props в компаненту Dialogs, заменив на её alert()

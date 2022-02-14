@@ -1,11 +1,12 @@
+// Date
 let state = {
     dialogsPage: {
         dialogsData: [
-            { id: 6, name: 'Alberth', avatar: 'https://globalmsk.ru/usr/person/big-person-15642464591.jpg'},
-            { id: 7, name: 'Victoria', avatar: "https://trikky.ru/wp-content/blogs.dir/1/files/2020/08/17/2859972401.jpg"},
-            { id: 8, name: 'Romualda', avatar: 'https://i.pinimg.com/736x/97/6a/0a/976a0a64749a8825b416e1a2dfbcd456.jpg'},
-            { id: 9, name: 'Germiona', avatar: 'https://ic.pics.livejournal.com/dubikvit/65747770/9409940/9409940_900.jpg'},
-            { id: 10, name: 'Antoniy', avatar: 'https://avatars.mds.yandex.net/get-zen_doc/1841592/pub_5c9691e0eca9d500b2d26159_5c969779fbaed100af8d11f7/scale_1200'},
+            { id: 1, name: 'Alberth', avatar: 'https://globalmsk.ru/usr/person/big-person-15642464591.jpg'},
+            { id: 2, name: 'Victoria', avatar: "https://trikky.ru/wp-content/blogs.dir/1/files/2020/08/17/2859972401.jpg"},
+            { id: 3, name: 'Romualda', avatar: 'https://i.pinimg.com/736x/97/6a/0a/976a0a64749a8825b416e1a2dfbcd456.jpg'},
+            { id: 4, name: 'Germiona', avatar: 'https://ic.pics.livejournal.com/dubikvit/65747770/9409940/9409940_900.jpg'},
+            { id: 5, name: 'Antoniy', avatar: 'https://avatars.mds.yandex.net/get-zen_doc/1841592/pub_5c9691e0eca9d500b2d26159_5c969779fbaed100af8d11f7/scale_1200'},
         ],
 
         messagesData: [
@@ -29,3 +30,8 @@ let state = {
 }
 
 export default state;
+
+// Functions
+export let addUser = (newUser) => {
+    state.dialogsPage.dialogsData.push({id: 6, name: newUser, avatar: "",})
+}

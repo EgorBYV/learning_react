@@ -2,6 +2,7 @@ import classes from './Dialogs.module.css'
 import Dialog from './Dialog/Dialog'
 import Message from './Message/Message'
 import React from 'react'
+import { addUser } from '../../redux/state'
 
 const Dialogs = (props) => {
 
@@ -16,7 +17,7 @@ const Dialogs = (props) => {
 
     let addMessage = () => {
         let text = newMessageElement.current.value
-        alert(text);
+        addUser(text);
     }
 
     return (
