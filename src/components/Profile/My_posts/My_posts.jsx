@@ -2,16 +2,25 @@ import classes from './My_posts.module.css'
 import Post from './Post/Post';
 import React from 'react';
 
-const My_posts = (props) => {
 
-  // let postsData = props.postsData 
-  let postElement = props.postsData.map( element => <Post message={element.text} number={element.id} />)
+const My_posts = (props) => {
+// Отрисовывает посты из базы в state.js, поле ввода текста для нового поста, кропку добавления нового поста.
+// 
+  // Из массива с текстами постов в state.js формирует массив постов из коппаненты Post.
+  let postElement = props.profilePage.postsData.map( element => <Post message={element.text} number={element.number} />)
 
   let newPostElement = React.createRef();  
   
-  let addPost = () => {
-   let text = newPostElement.current.value;
-   alert(text); 
+  let addNewPost = () => {
+   let newPost = newPostElement.current.value;
+   props.addPost(newPost);
+   props.updatePostText("");
+  }
+
+  function onPostChange() {
+    let newText = newPostElement.current.value;
+    console.log(newText);
+    props.updatePostText(newText);
   }
 
   return (
@@ -20,14 +29,11 @@ const My_posts = (props) => {
         <h4>My posts</h4>
       </div>
       <div>
-        <textarea ref={newPostElement} cols="30" rows="3"></textarea>
-        <button onClick={addPost}>Add post</button>
+        <textarea onChange={onPostChange} ref={newPostElement} cols="30" rows="3" value={props.profilePage.text}></textarea>
+        <button onClick={addNewPost}>Add post</button>
       </div>
       {postElement}
-      <Post message="Привет! Как дела?" number="5" />
-      <Post message="Спасибо. Отлично!" number="10" />
-      <Post message="Уау!" number="200" />
-    </div>)
+    </div>);
 };
 
 export default My_posts;

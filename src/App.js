@@ -1,14 +1,13 @@
-// import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
-import { Routes, Route, BrowserRouter } from "react-router-dom"
 import Settings from './components/Settings/Settings';
 import News from './components/News/News';
 import Contacts from './components/Contacts/Contacts';
 import Music from './components/Music/Music';
+import { Routes, Route, BrowserRouter } from "react-router-dom"
 
 const App = (props) => {
   // Собирает все главные копоненты приложения.
@@ -21,12 +20,16 @@ const App = (props) => {
         <div className="App-wrapper-content">
           <Routes>
             <Route path="/profile" element={<Profile
-              postsData={props.state.profilePage.postsData} />} />
+              profilePage={props.state.profilePage} 
+              addPost={props.addPost}
+              updatePostText={props.updatePostText}
+              />} />
             <Route path="/dialogs" element={<Dialogs
-              dialogsData={props.state.dialogsPage.dialogsData}
-              messagesData={props.state.dialogsPage.messagesData} 
+              dialogsPage={props.state.dialogsPage} 
               avatar={props.state.dialogsPage.dialogsData.avatar}
-              addUser={props.addUser}/>} />
+              addMessage={props.addMessage}
+              updateTextNewMessage={props.updateTextNewMessage}
+              />} />
             <Route path="/news" element={<News />} />
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/music" element={<Music />} />

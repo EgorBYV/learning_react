@@ -12,12 +12,13 @@ let state = {
         ],
 
         messagesData: [
-            { id: 4, text: 'You' },
-            { id: 5, text: 'Kick' },
-            { id: 6, text: 'My name is Barry' },
-            { id: 7, text: 'JavaScript is my favorite language.' },
-            { id: 8, text: "Swift is my wife's favorite language." },
+            { id: 1, text: 'You' },
+            { id: 2, text: 'Kick' },
+            { id: 3, text: 'My name is Barry' },
+            { id: 4, text: 'JavaScript is my favorite language.' },
+            { id: 5, text: "Swift is my wife's favorite language." },
         ],
+        newMessage: "Введи текст сообщения сюда",
     },
     profilePage: {
         postsData: [
@@ -27,16 +28,32 @@ let state = {
             { id: 4, text: 'Спасибо! Хорошо! Скучаю по тебе!', number: 1 },
             { id: 5, text: "Я тоже очень скучаю по тебе. Рада, что у тебя всё хорошо! Давай увидимся! Ты когда свободен?", number: 4 },
         ],
+        text: "Вот такое вот сообщение",
     },
     sidebar: {},
 }
 
+window.state = state;
 export default state;
 
 // Functions for dialogsPage:
-export let addUser = (newUser) => {
-    state.dialogsPage.dialogsData.push({id: 6, name: newUser, avatar: "",})
+export let addMessage = (newMessage) => {
+    state.dialogsPage.messagesData.push({id: 6, text: newMessage, })
+    rerenderEntireTree();
+}
+
+export let updateTextNewMessage = (newMessage) => {
+    state.dialogsPage.newMessage = newMessage;
     rerenderEntireTree();
 }
 
 // Functions for profilePage:
+export let addPost = (newPost) => {
+    state.profilePage.postsData.push({ id: 6, text: newPost, number: 0 })
+    rerenderEntireTree();
+}
+
+export let updatePostText = (newPost) => {
+    state.profilePage.text = newPost;
+    rerenderEntireTree();
+}
