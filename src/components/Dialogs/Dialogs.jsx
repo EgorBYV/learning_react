@@ -24,6 +24,7 @@ const Dialogs = (props) => {
         // Добавляет введенный пользователем текст в базу в state.js (но не сохраняет в файле)
         let text = newMessageElement.current.value
         props.addMessage(text);
+        props.updateTextNewMessage("");
     }
 
     let updateText = () => {
