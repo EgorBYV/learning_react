@@ -10,7 +10,7 @@ const Profile = (props) => {
     <div>
       <ProfileInfo />
       <div className={classes.profileBlok}>
-        <My_posts profilePage={props.profilePage} addPost={props.addPost} updatePostText={props.updatePostText}/>
+        <My_posts profilePage={props.profilePage} dispatch={props.dispatch}/>
       </div>
     </div>)
 };

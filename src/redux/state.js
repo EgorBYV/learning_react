@@ -1,3 +1,4 @@
+import { type } from "@testing-library/user-event/dist/type";
 
 let store = {
     // Date
@@ -42,7 +43,28 @@ let store = {
     subscribe(observer) {
         this._rerenderEntireTree = observer
     },
-   
+    dispatch(action) {
+        // Functions for profilePage:
+        if (action.type === "ADD-POST") {
+            this._state.profilePage.postsData.push({ id: 6, text: action.newPost, number: 0 });
+            this._state.profilePage.text = "";
+            this._rerenderEntireTree();
+        }
+        else if (action.type === "UPDATE-POST-TEXT") {
+            this._state.profilePage.text = action.newPost;
+            this._rerenderEntireTree();
+        }
+        // Functions for dialogsPage:
+        else if (action.type === "NEW-MESSAGE") {
+            this._state.dialogsPage.messagesData.push({ id: 6, text: action.newMessage, });
+            this._state.dialogsPage.newMessage = "";
+            this._rerenderEntireTree();
+        }
+        else if (action.type === "UPDATE-TEXT-NEW-MESSAGE") {
+            this._state.dialogsPage.newMessage = action.newMessage;
+            this._rerenderEntireTree();
+        }
+    },
     // Functions for dialogsPage:
     addMessage(newMessage) {
         this._state.dialogsPage.messagesData.push({ id: 6, text: newMessage, })

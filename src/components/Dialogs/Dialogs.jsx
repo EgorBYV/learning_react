@@ -23,13 +23,13 @@ const Dialogs = (props) => {
     let addText = () => {
         // Добавляет введенный пользователем текст в базу в state.js (но не сохраняет в файле)
         let text = newMessageElement.current.value
-        props.addMessage(text);
+        props.dispatch({type: "NEW-MESSAGE", newMessage: text});
         props.updateTextNewMessage("");
     }
 
     let updateText = () => {
         let text = newMessageElement.current.value
-        props.updateTextNewMessage(text)
+        props.dispatch({type: "UPDATE-TEXT-NEW-MESSAGE", newMessage: text})
     }
 
     return (
