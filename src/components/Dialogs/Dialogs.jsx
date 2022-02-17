@@ -2,6 +2,7 @@ import classes from './Dialogs.module.css'
 import Dialog from './Dialog/Dialog'
 import Message from './Message/Message'
 import React from 'react'
+import { addMessageActionCreator, updateTextNewMessageActionCreator } from '../../redux/state'
 
 const Dialogs = (props) => {
     // Компанента, возвращающая список из пользователей (в виде компанент), с которыми есть(будут) диалоги, 
@@ -23,13 +24,15 @@ const Dialogs = (props) => {
     let addText = () => {
         // Добавляет введенный пользователем текст в базу в state.js (но не сохраняет в файле)
         let text = newMessageElement.current.value
-        props.dispatch({type: "NEW-MESSAGE", newMessage: text});
+        let action = addMessageActionCreator(text)
+        props.dispatch(action);
         props.updateTextNewMessage("");
     }
 
     let updateText = () => {
         let text = newMessageElement.current.value
-        props.dispatch({type: "UPDATE-TEXT-NEW-MESSAGE", newMessage: text})
+        let action = updateTextNewMessageActionCreator(text);
+        props.dispatch(action)
     }
 
     return (

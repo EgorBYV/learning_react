@@ -1,4 +1,8 @@
-import { type } from "@testing-library/user-event/dist/type";
+
+const ADD_POST = 'ADD-POST';
+const UPDATE_POST_TEXT = "UPDATE-POST-TEXT";
+const NEW_MESSAGE = "NEW-MESSAGE";
+const UPDATE_TEXT_NEW_MESSAGE = "UPDATE-TEXT-NEW-MESSAGE";
 
 let store = {
     // Date
@@ -45,47 +49,59 @@ let store = {
     },
     dispatch(action) {
         // Functions for profilePage:
-        if (action.type === "ADD-POST") {
+        if (action.type === ADD_POST) {
             this._state.profilePage.postsData.push({ id: 6, text: action.newPost, number: 0 });
             this._state.profilePage.text = "";
             this._rerenderEntireTree();
         }
-        else if (action.type === "UPDATE-POST-TEXT") {
+        else if (action.type === UPDATE_POST_TEXT) {
             this._state.profilePage.text = action.newPost;
             this._rerenderEntireTree();
         }
         // Functions for dialogsPage:
-        else if (action.type === "NEW-MESSAGE") {
+        else if (action.type === NEW_MESSAGE) {
             this._state.dialogsPage.messagesData.push({ id: 6, text: action.newMessage, });
             this._state.dialogsPage.newMessage = "";
             this._rerenderEntireTree();
         }
-        else if (action.type === "UPDATE-TEXT-NEW-MESSAGE") {
+        else if (action.type === UPDATE_TEXT_NEW_MESSAGE) {
             this._state.dialogsPage.newMessage = action.newMessage;
             this._rerenderEntireTree();
         }
     },
-    // Functions for dialogsPage:
-    addMessage(newMessage) {
-        this._state.dialogsPage.messagesData.push({ id: 6, text: newMessage, })
-        this._rerenderEntireTree();
-    },
-    updateTextNewMessage(newMessage) {
-        this._state.dialogsPage.newMessage = newMessage;
-        this._rerenderEntireTree();
-    },
+    // // Functions for dialogsPage:
+    // addMessage(newMessage) {
+    //     this._state.dialogsPage.messagesData.push({ id: 6, text: newMessage, })
+    //     this._rerenderEntireTree();
+    // },
+    // updateTextNewMessage(newMessage) {
+    //     this._state.dialogsPage.newMessage = newMessage;
+    //     this._rerenderEntireTree();
+    // },
 
-    // Functions for profilePage:
-    addPost(newPost) {
-        this._state.profilePage.postsData.push({ id: 6, text: newPost, number: 0 })
-        this._rerenderEntireTree();
-    },
+    // // Functions for profilePage:
+    // addPost(newPost) {
+    //     this._state.profilePage.postsData.push({ id: 6, text: newPost, number: 0 })
+    //     this._rerenderEntireTree();
+    // },
 
-    updatePostText(newPost) {
-        this._state.profilePage.text = newPost;
-        this._rerenderEntireTree();
-    },
+    // updatePostText(newPost) {
+    //     this._state.profilePage.text = newPost;
+    //     this._rerenderEntireTree();
+    // },
 };
 
+export const addPostActionCreator = (NewText) => {
+    return {type: ADD_POST, newPost: NewText }
+}
+export const updatePostTextActionCreator = (NewText) => {
+    return { type: UPDATE_POST_TEXT, newPost: NewText}
+}
+export const addMessageActionCreator = (text) => {
+    return { type: NEW_MESSAGE, newMessage: text}
+}
+export const updateTextNewMessageActionCreator = (text) => {
+    return { type: UPDATE_TEXT_NEW_MESSAGE, newMessage: text }
+}
 window.store = store;
 export default store;

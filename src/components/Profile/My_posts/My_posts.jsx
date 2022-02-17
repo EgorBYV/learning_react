@@ -1,7 +1,7 @@
 import classes from './My_posts.module.css'
 import Post from './Post/Post';
 import React from 'react';
-
+import { addPostActionCreator, updatePostTextActionCreator } from '../../../redux/state' 
 
 const My_posts = (props) => {
 // Отрисовывает посты из базы в state.js, поле ввода текста для нового поста, кропку добавления нового поста.
@@ -13,14 +13,15 @@ const My_posts = (props) => {
   
   let addNewPost = () => {
    let newText = newPostElement.current.value;
-   let action = {type: "ADD-POST", newPost: newText}
+   let action = addPostActionCreator(newText);
    props.dispatch(action);
   //  props.updatePostText("");
   }
 
-  function onPostChange(action) {
+  function onPostChange() {
     let newText = newPostElement.current.value;
-    props.dispatch({type: "UPDATE-POST-TEXT", newPost: newText});
+    let action = updatePostTextActionCreator(newText);
+    props.dispatch(action);
   }
 
   return (
