@@ -1,3 +1,5 @@
+import addNewMessageDialogsReducer from "./dialogs-reducer";
+import addNewPostProfileReducer from "./profile-reducer";
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_POST_TEXT = "UPDATE-POST-TEXT";
@@ -40,7 +42,6 @@ let store = {
     getState() {
         return this._state
     },
-
     _rerenderEntireTree() {
         console.log("State changed");
     },
@@ -48,47 +49,10 @@ let store = {
         this._rerenderEntireTree = observer
     },
     dispatch(action) {
-        // Functions for profilePage:
-        if (action.type === ADD_POST) {
-            this._state.profilePage.postsData.push({ id: 6, text: action.newPost, number: 0 });
-            this._state.profilePage.text = "";
-            this._rerenderEntireTree();
-        }
-        else if (action.type === UPDATE_POST_TEXT) {
-            this._state.profilePage.text = action.newPost;
-            this._rerenderEntireTree();
-        }
-        // Functions for dialogsPage:
-        else if (action.type === NEW_MESSAGE) {
-            this._state.dialogsPage.messagesData.push({ id: 6, text: action.newMessage, });
-            this._state.dialogsPage.newMessage = "";
-            this._rerenderEntireTree();
-        }
-        else if (action.type === UPDATE_TEXT_NEW_MESSAGE) {
-            this._state.dialogsPage.newMessage = action.newMessage;
-            this._rerenderEntireTree();
-        }
+        this._state.dialogsPage = addNewMessageDialogsReducer(this._state.dialogsPage, action);
+        this._state.profilePage = addNewPostProfileReducer(this._state.profilePage, action);
+        this._rerenderEntireTree();
     },
-    // // Functions for dialogsPage:
-    // addMessage(newMessage) {
-    //     this._state.dialogsPage.messagesData.push({ id: 6, text: newMessage, })
-    //     this._rerenderEntireTree();
-    // },
-    // updateTextNewMessage(newMessage) {
-    //     this._state.dialogsPage.newMessage = newMessage;
-    //     this._rerenderEntireTree();
-    // },
-
-    // // Functions for profilePage:
-    // addPost(newPost) {
-    //     this._state.profilePage.postsData.push({ id: 6, text: newPost, number: 0 })
-    //     this._rerenderEntireTree();
-    // },
-
-    // updatePostText(newPost) {
-    //     this._state.profilePage.text = newPost;
-    //     this._rerenderEntireTree();
-    // },
 };
 
 export const addPostActionCreator = (NewText) => {
