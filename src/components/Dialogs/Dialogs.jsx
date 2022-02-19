@@ -2,7 +2,7 @@ import classes from './Dialogs.module.css'
 import Dialog from './Dialog/Dialog'
 import Message from './Message/Message'
 import React from 'react'
-import { addMessageActionCreator, updateTextNewMessageActionCreator } from '../../redux/state'
+import { addMessageActionCreator, updateTextNewMessageActionCreator } from '../../redux/dialogs-reducer'
 
 const Dialogs = (props) => {
     // Компанента, возвращающая список из пользователей (в виде компанент), с которыми есть(будут) диалоги, 
@@ -41,14 +41,14 @@ const Dialogs = (props) => {
                 {dialogsElements}
             </div>
             <div className={classes.messages}>
+                {messagesElements}
                 <div>
                     <textarea onChange={updateText}
-                        ref={newMessageElement} cols="30" rows="4" 
+                        ref={newMessageElement} cols="30" rows="3"
                         value={textNewMessage} >
                     </textarea>
                     <button onClick={addText}>Sent</button>
                 </div>
-                {messagesElements}
             </div>
         </div>
     )

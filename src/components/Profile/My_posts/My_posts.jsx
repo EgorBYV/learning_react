@@ -1,7 +1,7 @@
 import classes from './My_posts.module.css'
 import Post from './Post/Post';
 import React from 'react';
-import { addPostActionCreator, updatePostTextActionCreator } from '../../../redux/state' 
+import { addPostActionCreator, updatePostTextActionCreator } from '../../../redux/profile-reducer' 
 
 const My_posts = (props) => {
 // Отрисовывает посты из базы в state.js, поле ввода текста для нового поста, кропку добавления нового поста.
