@@ -1,7 +1,18 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_POST_TEXT = "UPDATE-POST-TEXT";
 
-const addNewPostProfileReducer = (state, action) => {
+let initialState = {
+    postsData: [
+        { id: 1, text: 'Привет!', number: 11 },
+        { id: 2, text: 'Здравствуй, Солнышко!', number: 12 },
+        { id: 3, text: 'Как у тебя дела?', number: 9 },
+        { id: 4, text: 'Спасибо! Хорошо! Скучаю по тебе!', number: 1 },
+        { id: 5, text: "Я тоже очень скучаю по тебе. Рада, что у тебя всё хорошо! Давай увидимся! Ты когда свободен?", number: 4 },
+    ],
+    text: "Вот такое вот сообщение",
+};
+
+const profileReducer = (state = initialState, action) => {
     // Functions for profilePage:
     switch (action.type) {
         case ADD_POST:
@@ -18,7 +29,7 @@ const addNewPostProfileReducer = (state, action) => {
         }
 };
 
-export default addNewPostProfileReducer;
+export default profileReducer;
 
 export const addPostActionCreator = (NewText) => {
     return {type: ADD_POST, newPost: NewText }

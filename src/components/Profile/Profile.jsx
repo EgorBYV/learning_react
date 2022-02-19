@@ -1,7 +1,6 @@
 import classes from './Profile.module.css'
 import My_posts from './My_posts/My_posts';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
-import { addPost } from '../../redux/state';
 
 const Profile = (props) => {
   // Собирает в возвращает Компаненту с главной картинкой, её описанием, постами c содержимым из state.js,
