@@ -30,8 +30,12 @@ const profileReducer = (state = initialState, action) => {
 };
 
 export default profileReducer;
-
+// ActionCreator - функция, которая возвращает объект action, у которого есть как минимум одно свойство type.
+// Примеры:
 export const addPostActionCreator = (NewText) => {
+    // В значении свойства type используется переменная ADD_POST. Это делается для удобства сопровождения 
+    // проекта в дальшейшем. Функция вызывается в Компонентах. И важно передавать точное значение через props 
+    // для изменения state и отрисовки Компонент. Использование переменных в значениях type и ActionCreator позволяет меньше ошибаться.
     return {type: ADD_POST, newPost: NewText }
 }
 export const updatePostTextActionCreator = (NewText) => {

@@ -8,6 +8,7 @@ import News from './components/News/News';
 import Contacts from './components/Contacts/Contacts';
 import Music from './components/Music/Music';
 import { Routes, Route, BrowserRouter } from "react-router-dom"
+import Dialogs_Container from './components/Dialogs/Dialogs_Container';
 
 const App = (props) => {
   // Собирает все главные копоненты приложения.
@@ -23,7 +24,7 @@ const App = (props) => {
               profilePage={props.state.profilePage} 
               dispatch={props.dispatch}
               />} />
-            <Route path="/dialogs" element={<Dialogs
+            <Route path="/dialogs" element={<Dialogs_Container
               dialogsPage={props.state.dialogsPage}
               dispatch={props.dispatch}
               />} />

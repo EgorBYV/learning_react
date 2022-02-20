@@ -2,7 +2,6 @@ import classes from './Dialogs.module.css'
 import Dialog from './Dialog/Dialog'
 import Message from './Message/Message'
 import React from 'react'
-import { addMessageActionCreator, updateTextNewMessageActionCreator } from '../../redux/dialogs-reducer'
 
 const Dialogs = (props) => {
     // Компанента, возвращающая список из пользователей (в виде компанент), с которыми есть(будут) диалоги, 
@@ -15,24 +14,22 @@ const Dialogs = (props) => {
         avatar={dialog.avatar} />)
 
     let messagesElements = props.dialogsPage.messagesData.map(message => <Message
-        // Возвращает (публикует) сообщение из базы в state.js
+        // Возвращает (публикует) сообщения из state
         text={message.text} />)
 
     let newMessageElement = React.createRef();
-    let textNewMessage = props.dialogsPage.newMessage;
+    let textMessage = props.dialogsPage.newMessage;
 
-    let addText = () => {
-        // Добавляет введенный пользователем текст в базу в state.js (но не сохраняет в файле)
+    let addMessage = () => {
+        // Добавляет введенный пользователем текст в state
         let text = newMessageElement.current.value
-        let action = addMessageActionCreator(text)
-        props.dispatch(action);
-        props.updateTextNewMessage("");
+        props.addText(text);
     }
 
-    let updateText = () => {
+    let updateMessage = () => {
+        // Посимвольно изменяет в state текст, введенный пользователем. 
         let text = newMessageElement.current.value
-        let action = updateTextNewMessageActionCreator(text);
-        props.dispatch(action)
+        props.updateText(text)
     }
 
     return (
@@ -43,11 +40,11 @@ const Dialogs = (props) => {
             <div className={classes.messages}>
                 {messagesElements}
                 <div>
-                    <textarea onChange={updateText}
+                    <textarea onChange={updateMessage}
                         ref={newMessageElement} cols="30" rows="3"
-                        value={textNewMessage} >
+                        value={textMessage} >
                     </textarea>
-                    <button onClick={addText}>Sent</button>
+                    <button onClick={addMessage}>Sent</button>
                 </div>
             </div>
         </div>

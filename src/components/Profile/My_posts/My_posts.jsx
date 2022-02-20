@@ -1,27 +1,23 @@
 import classes from './My_posts.module.css'
 import Post from './Post/Post';
-import React from 'react';
-import { addPostActionCreator, updatePostTextActionCreator } from '../../../redux/profile-reducer' 
+import React from 'react'; 
 
 const My_posts = (props) => {
 // Отрисовывает посты из базы в state.js, поле ввода текста для нового поста, кропку добавления нового поста.
 // 
   // Из массива с текстами постов в state.js формирует массив постов из коппаненты Post.
-  let postElement = props.profilePage.postsData.map( element => <Post message={element.text} number={element.number} />)
+  let postElement = props.posts.postsData.map( element => <Post message={element.text} number={element.number} />)
 
   let newPostElement = React.createRef();  
   
   let addNewPost = () => {
    let newText = newPostElement.current.value;
-   let action = addPostActionCreator(newText);
-   props.dispatch(action);
-  //  props.updatePostText("");
+   props.addPostClick(newText);
   }
 
   function onPostChange() {
     let newText = newPostElement.current.value;
-    let action = updatePostTextActionCreator(newText);
-    props.dispatch(action);
+    props.updatePostChange(newText);
   }
 
   return (
@@ -30,7 +26,7 @@ const My_posts = (props) => {
         <h4>My posts</h4>
       </div>
       <div>
-        <textarea onChange={onPostChange} ref={newPostElement} cols="30" rows="3" value={props.profilePage.text}></textarea>
+        <textarea onChange={onPostChange} ref={newPostElement} cols="30" rows="3" value={props.posts.text}></textarea>
         <button onClick={addNewPost}>Add post</button>
       </div>
       {postElement}
