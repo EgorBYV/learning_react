@@ -10,7 +10,7 @@ const Profile = (props) => {
     <div>
       <ProfileInfo />
       <div className={classes.profileBlok}>
-        <My_posts_Container profilePage={props.profilePage} dispatch={props.dispatch}/>
+        <My_posts_Container/>
       </div>
     </div>)
 };

@@ -4,21 +4,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import store from './redux/redux-store'
-
-// Запускает первую прорисовку приложения в браузере при первой загрузке страницы.
+import { BrowserRouter } from 'react-router-dom';
+import StoreContext from './StoreContext';
 
 export let rerenderEntireTree = () => {
   // Перересовывает всё дерево Web-приложения. (Не очень эффективно, но для обучения подойдет) 
   ReactDOM.render(
     <React.StrictMode>
-      <App state={store.getState()}
-        dispatch={store.dispatch.bind(store)}/>
+      <BrowserRouter>
+        <StoreContext.Provider value={store}>
+          <App />
+        </StoreContext.Provider>
+      </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
   );
 }
-
+// Запускает первую прорисовку приложения в браузере при первой загрузке страницы.
 rerenderEntireTree();
+// вызов callback-функции чтобы вернуть в store функцию отрисовки всего дерева приложения
 store.subscribe(rerenderEntireTree);
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

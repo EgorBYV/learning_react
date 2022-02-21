@@ -7,27 +7,20 @@ import Settings from './components/Settings/Settings';
 import News from './components/News/News';
 import Contacts from './components/Contacts/Contacts';
 import Music from './components/Music/Music';
-import { Routes, Route, BrowserRouter } from "react-router-dom"
+import { Routes, Route} from "react-router-dom"
 import Dialogs_Container from './components/Dialogs/Dialogs_Container';
 
 const App = (props) => {
   // Собирает все главные копоненты приложения.
   // Следит за их состоянием в Navbar и прорисовывает активные.
   return (
-    <BrowserRouter>
       <div className="App-wrapper">
         <Header />
         <Navbar />
         <div className="App-wrapper-content">
           <Routes>
-            <Route path="/profile" element={<Profile
-              profilePage={props.state.profilePage} 
-              dispatch={props.dispatch}
-              />} />
-            <Route path="/dialogs" element={<Dialogs_Container
-              dialogsPage={props.state.dialogsPage}
-              dispatch={props.dispatch}
-              />} />
+            <Route path="/profile" element={<Profile/>} />
+            <Route path="/dialogs" element={<Dialogs_Container/>} />
             <Route path="/news" element={<News />} />
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/music" element={<Music />} />
@@ -35,7 +28,6 @@ const App = (props) => {
           </Routes>
         </div>
       </div>
-    </BrowserRouter>
   );
 };
 
