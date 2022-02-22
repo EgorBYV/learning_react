@@ -10,12 +10,14 @@ const Dialogs = (props) => {
     let dialogsElements = props.dialogsPage.dialogsData.map((dialog) => <Dialog
         // Компанента, возращающая элемент(диалог) списка диалогов. Назначает имя, ID, аватар пользователя из базы в state.js
         name={dialog.name}
+        key={dialog.id}
         id={dialog.id}
         avatar={dialog.avatar} />)
 
     let messagesElements = props.dialogsPage.messagesData.map(message => <Message
         // Возвращает (публикует) сообщения из state
-        text={message.text} />)
+        text={message.text} 
+        key={message.id}/>)
 
     let newMessageElement = React.createRef();
     let textMessage = props.dialogsPage.newMessage;

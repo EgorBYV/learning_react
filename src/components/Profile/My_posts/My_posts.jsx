@@ -7,7 +7,7 @@ const My_posts = (props) => {
 // Отрисовывает посты из базы в state.js, поле ввода текста для нового поста, кропку добавления нового поста.
 // 
   // Из массива с текстами постов в state.js формирует массив постов из коппаненты Post.
-  let postElement = props.posts.postsData.map( element => <Post message={element.text} number={element.number} />)
+  let postElement = props.posts.postsData.map( element => <Post message={element.text} key={element.id} number={element.number} />)
 
   let newPostElement = React.createRef();  
   

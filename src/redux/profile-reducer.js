@@ -15,23 +15,22 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
     // Functions for profilePage:
     switch (action.type) {
-        case ADD_POST: {
-            let stateCopy = {...state}
-            stateCopy.postsData = [...state.postsData]
-            stateCopy.postsData.push({ id: 6, text: action.newPost, number: 0 })
-            stateCopy.text = ""
-            return stateCopy
+        case ADD_POST:
+            return {
+                ...state,
+                postsData: [...state.postsData, { id: 7, text: action.newPost, number: 0 }],
+                text: ""
+            }
             // break можно не писать в данный момент после case, так как мы испульзуем return
-        }
-        case UPDATE_POST_TEXT: {
-            let stateCopy = {...state}
-            stateCopy.text = action.newPost
-            return stateCopy
-            // break можно не писать в данный момент после case, так как мы испульзуем return
-        }
+        case UPDATE_POST_TEXT:
+            return {
+                ...state,
+                text: action.newPost
+            }
+        // break можно не писать в данный момент после case, так как мы испульзуем return
         default:
             return state
-        }
+    }
 };
 
 export default profileReducer;
@@ -41,8 +40,8 @@ export const addPostActionCreator = (NewText) => {
     // В значении свойства type используется переменная ADD_POST. Это делается для удобства сопровождения 
     // проекта в дальшейшем. Функция вызывается в Компонентах. И важно передавать точное значение через props 
     // для изменения state и отрисовки Компонент. Использование переменных в значениях type и ActionCreator позволяет меньше ошибаться.
-    return {type: ADD_POST, newPost: NewText }
+    return { type: ADD_POST, newPost: NewText }
 }
 export const updatePostTextActionCreator = (NewText) => {
-    return { type: UPDATE_POST_TEXT, newPost: NewText}
+    return { type: UPDATE_POST_TEXT, newPost: NewText }
 }
