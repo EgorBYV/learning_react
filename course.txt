@@ -103,3 +103,5 @@ const MyContext = React.createContext(defaulValue)
 
 Урок 45. Установка react-redux
 npm install react-redux --save
+Provider. в дочерней компоненте, вызывается функция connect(f1,f2)(child_component);
+f1 - функция, возвращающая данные из state, f2 - функция, возвращающая методы из dispatch. 'Это примерное описание'
