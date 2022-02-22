@@ -102,3 +102,4 @@ const MyContext = React.createContext(defaulValue)
 <MyContext.Consumer> - обрамляем чтобы вызвать в дочерней компоненте
 
 Урок 45. Установка react-redux
+npm install react-redux --save

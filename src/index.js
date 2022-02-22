@@ -5,16 +5,16 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import store from './redux/redux-store'
 import { BrowserRouter } from 'react-router-dom';
-import StoreContext from './StoreContext';
+import { Provider } from './StoreContext';
 
 export let rerenderEntireTree = () => {
   // Перересовывает всё дерево Web-приложения. (Не очень эффективно, но для обучения подойдет) 
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <StoreContext.Provider value={store}>
+        <Provider store={store}>
           <App />
-        </StoreContext.Provider>
+        </Provider>
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
