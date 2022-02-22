@@ -1,0 +1,26 @@
+<script>
+
+    a = {
+        human: "Egor",
+        number: 4,
+        bool: true,
+        cars: ["Mazda", "Tesla", "Mersedes", "BMW"],
+        countries: {
+            country: {
+                name: "France",
+                capital: "Paris",
+                population: 67.39,
+            }
+        }
+    }
+
+console.log(a)
+b = {...a};//Создание копии примитивов(с сохранением их в новой месте в памяти) и ссылок на объекты.
+b.cars = [...a.cars]//Создание копии объекта cars с созранением его в новой ячейке памяти 
+b.human = "Dima"
+b.cars[0] = "Opel"
+console.log(b)
+console.log(a)
+
+
+</script>

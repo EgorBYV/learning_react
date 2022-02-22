@@ -22,21 +22,26 @@ let initialState = {
     const dialogsReducer = (state = initialState, action) => {
         // Functions for dialogsPage:
         switch(action.type) {
-            case NEW_MESSAGE:
-                state.messagesData.push({ id: 6, text: action.newMessage, });
-                state.newMessage = "";
-                return state;
+            case NEW_MESSAGE: {
+                let stateCopy = {...state}
+                stateCopy.messagesData = [...state.messagesData]
+                stateCopy.messagesData.push({ id: 6, text: action.newMessage, })
+                stateCopy.newMessage = ""
+                return stateCopy
                 // break можно не писать в данный момент после case, так как мы используем return
-            case UPDATE_TEXT_NEW_MESSAGE:
-                state.newMessage = action.newMessage;
-                return state;
+            }
+            case UPDATE_TEXT_NEW_MESSAGE: {
+                let stateCopy = {...state} 
+                stateCopy.newMessage = action.newMessage
+                return stateCopy
                 // break можно не писать в данный момент после case, так как мы используем return
+            }
             default:
-                return state;
+                return state
         }
     };
 
-export default dialogsReducer;
+export default dialogsReducer
 
 export const addMessageActionCreator = (text) => {
     return { type: NEW_MESSAGE, newMessage: text}

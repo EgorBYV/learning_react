@@ -37,7 +37,7 @@ let mapDispatchToProps = (dispatch) => {
     addPostClick: (newText) => {
       dispatch(addPostActionCreator(newText))
     },
-    onPostChange: (newText) => {
+    updatePostChange: (newText) => {
       dispatch(updatePostTextActionCreator(newText))
     }
   }

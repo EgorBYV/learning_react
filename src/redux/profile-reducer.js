@@ -15,17 +15,22 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
     // Functions for profilePage:
     switch (action.type) {
-        case ADD_POST:
-            state.postsData.push({ id: 6, text: action.newPost, number: 0 });
-            state.text = "";
-            return state;
+        case ADD_POST: {
+            let stateCopy = {...state}
+            stateCopy.postsData = [...state.postsData]
+            stateCopy.postsData.push({ id: 6, text: action.newPost, number: 0 })
+            stateCopy.text = ""
+            return stateCopy
             // break можно не писать в данный момент после case, так как мы испульзуем return
-        case UPDATE_POST_TEXT:
-            state.text = action.newPost;
-            return state;
+        }
+        case UPDATE_POST_TEXT: {
+            let stateCopy = {...state}
+            stateCopy.text = action.newPost
+            return stateCopy
             // break можно не писать в данный момент после case, так как мы испульзуем return
+        }
         default:
-            return state;
+            return state
         }
 };
 
